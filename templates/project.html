@@ -155,17 +155,35 @@
             border-color: #00f0ff;
             color: #00f0ff;
         }
+
+        /* Mobile menu */
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: flex;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #22d3ee;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
     </style>
 </head>
 
 <body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
     <!-- TopAppBar -->
     <header class="sticky top-0 w-full z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center px-5 md:px-8 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-cyan-400" data-icon="terminal">terminal</span>
-                <h1 class="font-bold text-white tracking-widest uppercase font-['Space_Grotesk'] text-sm">ABHILASH
-                    BHUNIA</h1>
+                <h1 class="font-bold text-white tracking-widest uppercase font-['Space_Grotesk'] text-sm">ABHILASH BHUNIA</h1>
             </div>
             <nav class="hidden md:flex items-center gap-8"><a
                     class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
@@ -178,13 +196,32 @@
                     href="{{ url_for('skills') }}">Skills</a><a
                     class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
                     href="{{ url_for('contact') }}">Contact</a></nav>
-            <button
-                class="bg-transparent text-cyan-400 border border-cyan-400/50 px-5 py-2 text-xs font-['Space_Grotesk'] tracking-widest hover:bg-cyan-400 hover:text-black transition-all uppercase">
-                RESUME.PDF
-            </button>
+            <div class="flex items-center gap-3">
+                <button
+                    class="hidden md:block bg-transparent text-cyan-400 border border-cyan-400/50 px-5 py-2 text-xs font-['Space_Grotesk'] tracking-widest hover:bg-cyan-400 hover:text-black transition-all uppercase">
+                    RESUME.PDF
+                </button>
+                <button id="hamburger-btn" class="hamburger md:hidden flex flex-col justify-center p-1" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="flex-col gap-1 px-5 pb-4 bg-black/95 border-t border-white/5">
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('home') }}">Home</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('experience') }}">Experience</a>
+            <a class="block py-3 text-cyan-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider" href="{{ url_for('projects') }}">Projects</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('skills') }}">Skills</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('contact') }}">Contact</a>
+            <button class="mt-3 w-full bg-transparent text-cyan-400 border border-cyan-400/50 px-5 py-2 text-xs font-['Space_Grotesk'] tracking-widest hover:bg-cyan-400 hover:text-black transition-all uppercase">RESUME.PDF</button>
         </div>
     </header>
-    <main class="min-h-screen pt-xxl px-lg md:px-xl max-w-7xl mx-auto">
+    <script>
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+    <main class="min-h-screen pt-12 md:pt-xxl px-4 md:px-lg lg:px-xl max-w-7xl mx-auto">
         <!-- Hero Section -->
         <section class="mb-xxl">
             <div class="flex flex-col gap-sm items-center text-center">

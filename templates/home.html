@@ -148,6 +148,25 @@
                 opacity: 0;
             }
         }
+
+        /* Mobile menu */
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: flex;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: #22d3ee;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
     </style>
 </head>
 
@@ -156,11 +175,10 @@
     <!-- TopAppBar -->
     <header
         class="sticky top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,240,255,0.1)]">
-        <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <nav class="flex justify-between items-center px-5 md:px-8 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-cyan-400" data-icon="terminal">terminal</span>
-                <span class="text-sm font-black text-cyan-400 tracking-widest uppercase font-['Space_Grotesk']">ABHILASH
-                    BHUNIA</span>
+                <span class="text-sm font-black text-cyan-400 tracking-widest uppercase font-['Space_Grotesk']">ABHILASH BHUNIA</span>
             </div>
             <div class="hidden md:flex items-center gap-8">
                 <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-wider transition-colors duration-300"
@@ -174,28 +192,49 @@
                 <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
                     href="{{ url_for('contact') }}">Contact</a>
             </div>
-            <button
-                class="bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">
-                RESUME.PDF
-            </button>
+            <div class="flex items-center gap-3">
+                <button
+                    class="hidden md:block bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">
+                    RESUME.PDF
+                </button>
+                <!-- Hamburger -->
+                <button id="hamburger-btn" class="hamburger md:hidden flex flex-col justify-center p-1" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="flex-col gap-1 px-5 pb-4 bg-zinc-950/95 border-t border-white/5">
+            <a class="block py-3 text-cyan-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider" href="{{ url_for('home') }}">Home</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('experience') }}">Experience</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('projects') }}">Projects</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('skills') }}">Skills</a>
+            <a class="block py-3 text-zinc-400 border-b border-white/5 font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300" href="{{ url_for('contact') }}">Contact</a>
+            <button class="mt-3 w-full bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">RESUME.PDF</button>
+        </div>
     </header>
-    <main class="max-w-7xl mx-auto px-8">
+    <script>
+        document.getElementById('hamburger-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+    </script>
+    <main class="max-w-7xl mx-auto px-4 md:px-8">
         <!-- Hero Section -->
-        <section class="py-xxl grid grid-cols-12 gap-gutter items-center min-h-[819px]">
-            <div class="col-span-7">
+        <section class="py-16 md:py-xxl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter items-center">
+            <div class="md:col-span-7 text-center md:text-left">
                 <div
                     class="inline-block px-3 py-1 border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-mono-sm font-mono-sm mb-md">
                     $ WHOAMI --STATE=ACTIVE
                 </div>
-                <h1 class="font-display-lg text-display-lg text-white mb-lg">Abhilash <span
+                <h1 class="font-display-lg text-5xl sm:text-6xl md:text-display-lg text-white mb-lg leading-tight">Abhilash <span
                         class="text-cyan-400">Bhunia</span></h1>
-                <div class="text-headline-md font-headline-md text-cyan-400/80 mb-md uppercase tracking-wider">Data
+                <div class="text-xl md:text-headline-md font-headline-md text-cyan-400/80 mb-md uppercase tracking-wider">Data
                     Analyst &amp; ML Specialist</div>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-xl">Motivated data professional
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-xl mx-auto md:mx-0">Motivated data professional
                     with experience in Data Science, Machine Learning, AI, and Data Analytics. Skilled in Python, SQL,
                     Power BI, and end-to-end data workflows.</p>
-                <div class="flex gap-md">
+                <div class="flex flex-wrap gap-md justify-center md:justify-start">
                     <a href="{{ url_for('projects') }}"
                         class="bg-primary-container text-on-primary-container px-xl py-md font-label-caps text-label-caps uppercase hover:scale-105 transition-transform">
                         Explore My Work
@@ -206,7 +245,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-span-5 relative">
+            <div class="md:col-span-5 relative max-w-sm mx-auto md:max-w-none">
                 <div
                     class="aspect-square glass-panel rounded-lg overflow-hidden relative border border-cyan-400/20 neon-glow">
                     <img alt="Abhilash Bhunia"
@@ -222,8 +261,8 @@
                     </div>
                 </div>
                 <!-- Decorative Elements -->
-                <div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-cyan-400/40"></div>
-                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-cyan-400/40"></div>
+                <div class="hidden md:block absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-cyan-400/40"></div>
+                <div class="hidden md:block absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-cyan-400/40"></div>
             </div>
         </section>
         <!-- Metrics Bento Grid -->
@@ -231,7 +270,7 @@
             <h2 class="font-headline-md text-headline-md text-white mb-xl flex items-center gap-4">
                 <span class="w-8 h-[2px] bg-cyan-400"></span> Performance_Metrics
             </h2>
-            <div class="grid grid-cols-4 gap-lg">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-lg">
                 <div class="glass-panel p-lg rounded-lg border-l-4 border-l-cyan-400">
                     <div class="text-mono-sm font-mono-sm text-zinc-500 mb-sm">MODELS_DEPLOYED</div>
                     <div class="text-display-lg text-4xl text-cyan-400 font-headline-lg">42+</div>
@@ -269,9 +308,9 @@
                 <a class="text-cyan-400 font-label-caps text-label-caps border-b border-cyan-400/30 pb-1 hover:text-cyan-300 transition-all uppercase"
                     href="#">View all archives</a>
             </div>
-            <div class="grid grid-cols-12 gap-lg">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-lg">
                 <!-- Large Project Card -->
-                <div class="col-span-8 group">
+                <div class="md:col-span-8 group">
                     <div
                         class="glass-panel rounded-lg overflow-hidden border border-white/5 group-hover:border-cyan-400/30 transition-all duration-500 relative">
                         <div class="h-[400px] w-full relative overflow-hidden">
@@ -302,7 +341,7 @@
                     </div>
                 </div>
                 <!-- Vertical Project Card -->
-                <div class="col-span-4 group">
+                <div class="md:col-span-4 group">
                     <div
                         class="glass-panel h-full rounded-lg overflow-hidden border border-white/5 group-hover:border-secondary-container/30 transition-all duration-500 flex flex-col duration-300 ease-out hover:scale-\[1.02\] hover:-translate-y-2 hover:shadow-\[0_0_25px_rgba(16,185,129,0.3)\] hover:border-emerald-500\/50">
                         <div class="h-64 relative">
@@ -343,7 +382,7 @@
                     <div class="w-3 h-3 rounded-full bg-cyan-400/40"></div>
                     <span class="text-mono-sm font-mono-sm text-zinc-500 ml-sm">user@abhilash: ~/stack</span>
                 </div>
-                <div class="p-xl font-mono-sm text-mono-sm grid grid-cols-3 gap-xl">
+                <div class="p-6 md:p-xl font-mono-sm text-mono-sm grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-xl">
                     <div>
                         <div class="text-cyan-400 mb-md"># CORE_LANGUAGES</div>
                         <ul class="space-y-sm text-zinc-400">
