@@ -108,6 +108,10 @@
         }
     </script>
     <style>
+        * {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
         .glass-panel {
             background: rgba(18, 18, 20, 0.6);
             backdrop-filter: blur(20px);
@@ -210,11 +214,11 @@
                 <div class="md:col-span-8 glass-panel p-xl flex flex-col justify-between min-h-[300px]">
                     <div>
                         <span class="material-symbols-outlined text-surface-tint text-4xl mb-6">mail</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Direct Channel</h3>
+                        <h3 class="font-headline-md text-lg md:text-headline-md text-on-surface mb-2">Direct Channel</h3>
                         <p class="text-on-surface-variant font-body-lg">For complex technical queries or full-stack AI
                             development inquiries.</p>
                     </div>
-                    <a class="font-headline-md text-headline-md text-surface-tint hover:underline transition-all"
+                    <a class="font-headline-md text-base md:text-headline-md text-surface-tint hover:underline transition-all break-all"
                         href="mailto:abhilashbhunia@gmail.com">
                         abhilashbhunia@gmail.com
                     </a>
@@ -224,7 +228,7 @@
                     <div>
                         <span
                             class="material-symbols-outlined text-surface-tint text-4xl mb-6">connect_without_contact</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Network</h3>
+                        <h3 class="font-headline-md text-lg md:text-headline-md text-on-surface mb-2">Network</h3>
                         <p class="text-on-surface-variant font-body-md">Connect for industry insights and professional
                             networking.</p>
                     </div>
@@ -241,7 +245,7 @@
                     </div>
                     <div class="relative z-10">
                         <span class="material-symbols-outlined text-surface-tint text-4xl mb-6">calendar_today</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Schedule Sync</h3>
+                        <h3 class="font-headline-md text-lg md:text-headline-md text-on-surface mb-2">Schedule Sync</h3>
                         <p class="text-on-surface-variant font-body-md mb-6">Skip the email chain. Pick a time for a
                             deep dive into your project requirements or technical roadmap.</p>
                     </div>
@@ -255,7 +259,7 @@
                 <div class="md:col-span-7 glass-panel p-0 flex flex-col md:flex-row min-h-[350px] overflow-hidden">
                     <div class="flex-1 p-xl flex flex-col justify-center">
                         <span class="text-surface-tint font-label-caps mb-4">$ LOCATE --USER</span>
-                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Global Operations Base</h3>
+                        <h3 class="font-headline-md text-lg md:text-headline-md text-on-surface mb-2">Global Operations Base</h3>
                         <div class="flex items-center gap-2 mb-6">
                             <span class="material-symbols-outlined text-secondary"
                                 style="font-variation-settings: 'FILL' 1;">location_on</span>
@@ -285,7 +289,7 @@
         <!-- Final CTA -->
         <section class="max-w-7xl mx-auto px-4 md:px-8 mb-xxl text-center">
             <div class="py-xxl border-y border-zinc-800/50">
-                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">PREPARING FOR LAUNCH?</h2>
+                <h2 class="font-headline-lg text-2xl md:text-headline-lg text-on-surface mb-6">PREPARING FOR LAUNCH?</h2>
                 <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto mb-lg">
                     Whether it's a predictive modeling challenge or a full-scale AI implementation, my terminal is
                     always open for the right problems.
