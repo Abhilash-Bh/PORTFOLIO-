@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="dark" lang="en" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ABHILASH BHUNIA // Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353437",
+                        "on-secondary-container": "#0f6d00",
+                        "surface": "#131315",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "background": "#131315",
+                        "primary-fixed": "#7df4ff",
+                        "on-surface": "#e5e1e4",
+                        "surface-container": "#201f21",
+                        "on-primary": "#00363a",
+                        "on-secondary": "#053900",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#d7ffc5",
+                        "inverse-surface": "#e5e1e4",
+                        "secondary-container": "#2ff801",
+                        "on-surface-variant": "#b9cacb",
+                        "on-primary-fixed": "#002022",
+                        "tertiary-container": "#e1d2ff",
+                        "surface-dim": "#131315",
+                        "on-primary-fixed-variant": "#004f54",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#23005b",
+                        "inverse-primary": "#006970",
+                        "inverse-on-surface": "#313032",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#022100",
+                        "surface-bright": "#39393b",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-tint": "#00dbe9",
+                        "secondary-fixed": "#79ff5b",
+                        "outline-variant": "#3b494b",
+                        "primary-container": "#00f0ff",
+                        "secondary-fixed-dim": "#2ae500",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-container-low": "#1c1b1d",
+                        "on-tertiary": "#3c0090",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-primary-container": "#006970",
+                        "on-background": "#e5e1e4",
+                        "tertiary": "#faf3ff",
+                        "surface-container-highest": "#353437",
+                        "on-secondary-fixed-variant": "#095300",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "outline": "#849495",
+                        "primary": "#dbfcff",
+                        "on-tertiary-container": "#7213ff",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "unit": "4px",
+                        "xxl": "80px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "mono-sm": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-panel {
+            background: rgba(18, 18, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+        }
+
+        .terminal-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopAppBar -->
+    <header
+        class="sticky top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+        <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400" data-icon="terminal">terminal</span>
+                <span class="text-sm font-black text-cyan-400 tracking-widest uppercase font-['Space_Grotesk']">ABHILASH
+                    BHUNIA</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-wider transition-colors duration-300"
+                    href="{{ url_for('home') }}">Home</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('experience') }}">Experience</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('projects') }}">Projects</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('skills') }}">Skills</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('contact') }}">Contact</a>
+            </div>
+            <button
+                class="bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">
+                RESUME.PDF
+            </button>
+        </nav>
+    </header>
+    <main class="max-w-7xl mx-auto px-8">
+        <!-- Hero Section -->
+        <section class="py-xxl grid grid-cols-12 gap-gutter items-center min-h-[819px]">
+            <div class="col-span-7">
+                <div
+                    class="inline-block px-3 py-1 border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 text-mono-sm font-mono-sm mb-md">
+                    $ WHOAMI --STATE=ACTIVE
+                </div>
+                <h1 class="font-display-lg text-display-lg text-white mb-lg">Abhilash <span
+                        class="text-cyan-400">Bhunia</span></h1>
+                <div class="text-headline-md font-headline-md text-cyan-400/80 mb-md uppercase tracking-wider">Data
+                    Analyst &amp; ML Specialist</div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-xl">Motivated data professional
+                    with experience in Data Science, Machine Learning, AI, and Data Analytics. Skilled in Python, SQL,
+                    Power BI, and end-to-end data workflows.</p>
+                <div class="flex gap-md">
+                    <a href="{{ url_for('projects') }}"
+                        class="bg-primary-container text-on-primary-container px-xl py-md font-label-caps text-label-caps uppercase hover:scale-105 transition-transform">
+                        Explore My Work
+                    </a>
+                    <a href="{{ url_for('contact') }}"
+                        class="border border-outline text-on-surface px-xl py-md font-label-caps text-label-caps uppercase hover:bg-white/5 transition-colors">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="col-span-5 relative">
+                <div
+                    class="aspect-square glass-panel rounded-lg overflow-hidden relative border border-cyan-400/20 neon-glow">
+                    <img alt="Abhilash Bhunia"
+                        class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                        src="{{ url_for('static', filename='pofimage.jpeg') }}">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-md left-md right-md flex justify-between items-end">
+                        <div class="text-mono-sm font-mono-sm text-cyan-400">
+                            COORD: 40.7128° N, 74.0060° W<br>
+                            TS: 2024.11.08.0944
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-cyan-400/40"></div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-cyan-400/40"></div>
+            </div>
+        </section>
+        <!-- Metrics Bento Grid -->
+        <section class="mb-xxl">
+            <h2 class="font-headline-md text-headline-md text-white mb-xl flex items-center gap-4">
+                <span class="w-8 h-[2px] bg-cyan-400"></span> Performance_Metrics
+            </h2>
+            <div class="grid grid-cols-4 gap-lg">
+                <div class="glass-panel p-lg rounded-lg border-l-4 border-l-cyan-400">
+                    <div class="text-mono-sm font-mono-sm text-zinc-500 mb-sm">MODELS_DEPLOYED</div>
+                    <div class="text-display-lg text-4xl text-cyan-400 font-headline-lg">42+</div>
+                    <div class="w-full bg-zinc-800 h-1 mt-md">
+                        <div class="bg-cyan-400 h-full w-[85%]"></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-lg rounded-lg border-l-4 border-l-tertiary-fixed-dim">
+                    <div class="text-mono-sm font-mono-sm text-zinc-500 mb-sm">ACCURACY_BENCHMARK</div>
+                    <div class="text-display-lg text-4xl text-tertiary-fixed-dim font-headline-lg">99.2%</div>
+                    <div class="w-full bg-zinc-800 h-1 mt-md">
+                        <div class="bg-tertiary-fixed-dim h-full w-[99%]"></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-lg rounded-lg border-l-4 border-l-secondary-container">
+                    <div class="text-mono-sm font-mono-sm text-zinc-500 mb-sm">DATA_PROCESSED</div>
+                    <div class="text-display-lg text-4xl text-secondary-container font-headline-lg">1.2PB</div>
+                    <div class="w-full bg-zinc-800 h-1 mt-md">
+                        <div class="bg-secondary-container h-full w-[70%]"></div>
+                    </div>
+                </div>
+                <div class="glass-panel p-lg rounded-lg border-l-4 border-l-error">
+                    <div class="text-mono-sm font-mono-sm text-zinc-500 mb-sm">COST_OPTIMIZED</div>
+                    <div class="text-display-lg text-4xl text-error font-headline-lg">40%</div>
+                    <div class="w-full bg-zinc-800 h-1 mt-md">
+                        <div class="bg-error h-full w-[40%]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Project Grid -->
+        <section class="mb-xxl">
+            <div class="flex justify-between items-end mb-xl">
+                <h2 class="font-headline-md text-headline-md text-white">Featured_Projects</h2>
+                <a class="text-cyan-400 font-label-caps text-label-caps border-b border-cyan-400/30 pb-1 hover:text-cyan-300 transition-all uppercase"
+                    href="#">View all archives</a>
+            </div>
+            <div class="grid grid-cols-12 gap-lg">
+                <!-- Large Project Card -->
+                <div class="col-span-8 group">
+                    <div
+                        class="glass-panel rounded-lg overflow-hidden border border-white/5 group-hover:border-cyan-400/30 transition-all duration-500 relative">
+                        <div class="h-[400px] w-full relative overflow-hidden">
+                            <img alt="Neural Engine"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="A high-tech digital interface representing a neural network architecture. Luminescent data nodes are interconnected by glowing cyan threads against a deep void background. Floating code snippets in monospaced font appear layered in a 3D glassmorphic space. The visual style is highly technical, using a palette of deep blacks, neon cyans, and subtle purple highlights to convey advanced machine learning concepts."
+                                src="https://lh3.googleusercontent.com/aida/ADBb0ugVKOq3RnuaSyb8aHY8gBKcYZvE8JKYeu9NgwTWISPqMDh7woCcP_hxSIvEO1U2TyFeCQ8P2HxdHI5p_24p3ExHqesWFNkR6FHlhS8s66SP6Fb3CUCWTfa3TyJDsTa0fVrFCXElMdDHO-UUtyPVuUiKDHT6lRiCCbqWakaOIMipK5ntQaaLDmUl-I-I_cDUSfEctBqlHP8bcLJBqzxECf71SY5C90mKTV733Lbj9nQqEGxpf3zk20ja5Rag">
+                            <div
+                                class="absolute inset-0 flex flex-col justify-end p-xl group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px] backdrop-blur-sm bg-black/50">
+                                <div class="flex gap-sm mb-md"><span
+                                        class="px-2 py-1 bg-cyan-500/20 border border-cyan-400/40 text-cyan-400 text-label-caps text-[10px] font-label-caps">ACTIVE</span><span
+                                        class="px-2 py-1 bg-purple-500/20 border border-purple-400/40 text-purple-400 text-label-caps text-[10px] font-label-caps">120ms
+                                        LATENCY</span></div>
+                                <h3
+                                    class="text-white text-headline-md font-headline-md mb-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] drop-shadow-lg">
+                                    JERVIS: AI AUTOMATION AGENT</h3>
+                                <p class="text-zinc-300 max-w-lg font-body-md text-body-md mb-md">A sophisticated
+                                    AI-driven voice assistant designed for seamless automation and intelligent task
+                                    management.</p>
+                                <button
+                                    class="w-fit flex items-center gap-2 text-cyan-400 font-label-caps text-label-caps uppercase group/btn">
+                                    EXECUTE_ANALYSIS <span
+                                        class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1"
+                                        data-icon="arrow_forward">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vertical Project Card -->
+                <div class="col-span-4 group">
+                    <div
+                        class="glass-panel h-full rounded-lg overflow-hidden border border-white/5 group-hover:border-secondary-container/30 transition-all duration-500 flex flex-col duration-300 ease-out hover:scale-\[1.02\] hover:-translate-y-2 hover:shadow-\[0_0_25px_rgba(16,185,129,0.3)\] hover:border-emerald-500\/50">
+                        <div class="h-64 relative">
+                            <img alt="Data Flow"
+                                class="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                                data-alt="Abstract visualization of high-frequency financial data streaming through a digital corridor. Shimmering green bars and line charts emerge from a dark abyss, illuminated by a grid pattern on the ground plane. The scene is rendered with heavy motion blur to suggest speed and volume. The lighting is exclusively from the neon data elements, creating a sharp, modern fintech aesthetic consistent with a data scientist's portfolio."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQwXt2KbN38K0uumkqsJlSGYKxOMQrbvOWZTcjevkIxZKY6lsrN13s69_rSUePediTD312D-hR4RAB7lXSLUbM4HKyFWmpX7cAGR5goyFSuGtCttF4PNJK08Qkyhs6wrghsVmKut6ESWyMQEkr7nIJ6ybjm5VUDbhFRP9Yq8R3fnW6FQ0PUyOLcDzKvesm2UkhgIC8zHPuRTLMNCZr6KFPn3wLze7l2yiBJ1cNLpk-e2kinGgG1vN4sqQ6xVAMFoyPqKzWKnTfBoD6">
+                            <div
+                                class="absolute top-md right-md px-3 py-1 bg-secondary-container text-on-secondary-container text-mono-sm font-mono-sm font-bold z-10">
+                                STABLE</div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80">
+                            </div>
+                        </div>
+                        <div
+                            class="-mt-12 mx-4 mb-4 p-lg flex-1 flex flex-col bg-zinc-950/40 backdrop-blur-md border border-emerald-500/20 rounded-lg relative z-20">
+                            <h3 class="text-white text-headline-md font-headline-md mb-sm text-2xl">JOB APPLICATION
+                                PORTAL</h3>
+                            <p class="text-zinc-400 font-body-md text-body-md mb-lg">An end-to-end platform for tracking
+                                and optimizing job applications with automated status updates and performance analytics.
+                            </p>
+                            <div class="mt-auto pt-lg border-t border-white/5 flex justify-between items-center">
+                                <span class="text-mono-sm font-mono-sm text-secondary-container">95% MATCH RATE</span>
+                                <span class="material-symbols-outlined text-white"
+                                    data-icon="open_in_new">open_in_new</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Terminal -->
+        <section class="mb-xxl">
+            <div class="glass-panel rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+                <div class="bg-surface-container px-md py-sm flex items-center gap-2 border-b border-white/10">
+                    <div class="w-3 h-3 rounded-full bg-error/40"></div>
+                    <div class="w-3 h-3 rounded-full bg-secondary-container/40"></div>
+                    <div class="w-3 h-3 rounded-full bg-cyan-400/40"></div>
+                    <span class="text-mono-sm font-mono-sm text-zinc-500 ml-sm">user@abhilash: ~/stack</span>
+                </div>
+                <div class="p-xl font-mono-sm text-mono-sm grid grid-cols-3 gap-xl">
+                    <div>
+                        <div class="text-cyan-400 mb-md"># CORE_LANGUAGES</div>
+                        <ul class="space-y-sm text-zinc-400">
+                            <li class=""><span class="text-white">&gt;</span> Python (Pandas, NumPy, Scikit)</li>
+                            <li class=""><span class="text-white">&gt;</span> R (Tidyverse, Ggplot2)</li>
+                            <li class=""><span class="text-white">&gt;</span> SQL (PostgreSQL, BigQuery)</li>
+                            <li class=""><span class="text-white">&gt;</span> C++ (Optimization Modules)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-tertiary-fixed-dim mb-md"># AI_FRAMEWORKS</div>
+                        <ul class="space-y-sm text-zinc-400">
+                            <li class=""><span class="text-white">&gt;</span> PyTorch &amp; TensorFlow</li>
+                            <li class=""><span class="text-white">&gt;</span> HuggingFace Transformers</li>
+                            <li class=""><span class="text-white">&gt;</span> OpenCV &amp; MediaPipe</li>
+                            <li class=""><span class="text-white">&gt;</span> LangChain / AutoGPT</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-secondary-container mb-md"># INFRASTRUCTURE</div>
+                        <ul class="space-y-sm text-zinc-400">
+                            <li class=""><span class="text-white">&gt;</span> Docker / Kubernetes</li>
+                            <li class=""><span class="text-white">&gt;</span> AWS (SageMaker, Lambda)</li>
+                            <li class=""><span class="text-white">&gt;</span> Airflow / MLflow</li>
+                            <li class=""><span class="text-white">&gt;</span> CI/CD (GitHub Actions)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="px-xl pb-xl text-mono-sm font-mono-sm text-cyan-400/60 terminal-cursor">
+                    $ system_ready --awaiting-input
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-16 border-t border-white/5 bg-zinc-950 mt-xxl">
+        <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
+            <div class="text-zinc-600 font-['Space_Grotesk'] text-xs tracking-widest uppercase">
+                © 2024 ABHILASH BHUNIA // DATA SCIENTIST
+            </div>
+            <div class="flex gap-lg">
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out font-['Space_Grotesk'] text-xs tracking-widest uppercase"
+                    href="#">GitHub</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out font-['Space_Grotesk'] text-xs tracking-widest uppercase"
+                    href="#">LinkedIn</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out font-['Space_Grotesk'] text-xs tracking-widest uppercase"
+                    href="#">Kaggle</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out font-['Space_Grotesk'] text-xs tracking-widest uppercase"
+                    href="#">Email</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(42,229,0,0.5)]"></span>
+                <span
+                    class="text-zinc-600 font-['Space_Grotesk'] text-xs tracking-widest uppercase">SYSTEM_OPERATIONAL</span>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>

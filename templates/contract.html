@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#e1d2ff",
+                        "secondary": "#d7ffc5",
+                        "outline-variant": "#3b494b",
+                        "surface-dim": "#131315",
+                        "surface": "#131315",
+                        "on-tertiary": "#3c0090",
+                        "on-primary-fixed": "#002022",
+                        "inverse-surface": "#e5e1e4",
+                        "secondary-container": "#2ff801",
+                        "background": "#131315",
+                        "surface-container-lowest": "#0e0e10",
+                        "error": "#ffb4ab",
+                        "primary": "#dbfcff",
+                        "surface-variant": "#353437",
+                        "surface-container-low": "#1c1b1d",
+                        "on-secondary-fixed": "#022100",
+                        "inverse-primary": "#006970",
+                        "tertiary-fixed": "#e9ddff",
+                        "error-container": "#93000a",
+                        "surface-bright": "#39393b",
+                        "tertiary": "#faf3ff",
+                        "surface-container-highest": "#353437",
+                        "surface-container-high": "#2a2a2c",
+                        "on-secondary-container": "#0f6d00",
+                        "secondary-fixed-dim": "#2ae500",
+                        "on-secondary-fixed-variant": "#095300",
+                        "surface-container": "#201f21",
+                        "secondary-fixed": "#79ff5b",
+                        "inverse-on-surface": "#313032",
+                        "surface-tint": "#00dbe9",
+                        "on-tertiary-fixed": "#23005b",
+                        "on-surface": "#e5e1e4",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "on-error": "#690005",
+                        "on-secondary": "#053900",
+                        "primary-fixed": "#7df4ff",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-container": "#006970",
+                        "primary-container": "#00f0ff",
+                        "on-primary": "#00363a",
+                        "on-surface-variant": "#b9cacb",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "on-background": "#e5e1e4",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-tertiary-container": "#7213ff",
+                        "on-primary-fixed-variant": "#004f54",
+                        "outline": "#849495"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "container-max": "1280px",
+                        "xl": "48px",
+                        "gutter": "24px",
+                        "xxl": "80px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "mono-sm": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "mono-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(18, 18, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(0, 219, 233, 0.3);
+            box-shadow: 0 0 20px rgba(0, 219, 233, 0.05);
+        }
+
+        .terminal-grid {
+            background-image: radial-gradient(rgba(0, 219, 233, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <header
+        class="sticky top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+        <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400">terminal</span>
+                <span class="text-sm font-black text-cyan-400 tracking-widest uppercase font-['Space_Grotesk']">ABHILASH
+                    BHUNIA</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('home') }}">Home</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('experience') }}">Experience</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('projects') }}">Projects</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('skills') }}">Skills</a>
+                <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-wider transition-colors duration-300"
+                    href="{{ url_for('contact') }}">Contact</a>
+            </div>
+            <button
+                class="bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">
+                RESUME.PDF
+            </button>
+        </nav>
+    </header>
+    <main class="min-h-screen pt-8">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-8 mb-xxl">
+            <div class="relative text-center">
+                <span class="text-surface-tint font-label-caps mb-4 block">AVAILABLE FOR NEW VENTURES</span>
+                <h1 class="font-display-lg text-display-lg text-primary tracking-tighter leading-none mb-8">
+                    LET'S COLLABORATE.
+                </h1>
+                <div class="w-24 h-1 bg-surface-tint mx-auto"></div>
+            </div>
+        </section>
+        <!-- Contact Bento Grid -->
+        <section class="max-w-7xl mx-auto px-8 mb-xxl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-lg h-full">
+                <!-- Email Card -->
+                <div class="md:col-span-8 glass-panel p-xl flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <span class="material-symbols-outlined text-surface-tint text-4xl mb-6">mail</span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Direct Channel</h3>
+                        <p class="text-on-surface-variant font-body-lg">For complex technical queries or full-stack AI
+                            development inquiries.</p>
+                    </div>
+                    <a class="font-headline-md text-headline-md text-surface-tint hover:underline transition-all"
+                        href="mailto:abhilashbhunia@gmail.com">
+                        abhilashbhunia@gmail.com
+                    </a>
+                </div>
+                <!-- LinkedIn Card -->
+                <div class="md:col-span-4 glass-panel p-xl flex flex-col justify-between min-h-[300px]">
+                    <div>
+                        <span
+                            class="material-symbols-outlined text-surface-tint text-4xl mb-6">connect_without_contact</span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Network</h3>
+                        <p class="text-on-surface-variant font-body-md">Connect for industry insights and professional
+                            networking.</p>
+                    </div>
+                    <a class="font-mono-sm text-surface-tint border border-surface-tint/30 px-4 py-3 text-center hover:bg-surface-tint/10 transition-colors uppercase"
+                        href="https://linkedin.com/in/abhilash-bhunia" target="_blank">
+                        linkedin.com/in/abhilash-bhunia
+                    </a>
+                </div>
+                <!-- Calendar Card -->
+                <div
+                    class="md:col-span-5 glass-panel p-xl flex flex-col justify-between min-h-[350px] relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-surface-tint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="relative z-10">
+                        <span class="material-symbols-outlined text-surface-tint text-4xl mb-6">calendar_today</span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Schedule Sync</h3>
+                        <p class="text-on-surface-variant font-body-md mb-6">Skip the email chain. Pick a time for a
+                            deep dive into your project requirements or technical roadmap.</p>
+                    </div>
+                    <button
+                        class="relative z-10 w-full py-4 bg-primary-container text-on-primary-container font-headline-md text-xl font-bold flex items-center justify-center gap-2 group-hover:scale-[1.02] transition-transform">
+                        BOOK A SYNC
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+                <!-- Location / Global Operations -->
+                <div class="md:col-span-7 glass-panel p-0 flex flex-col md:flex-row min-h-[350px] overflow-hidden">
+                    <div class="flex-1 p-xl flex flex-col justify-center">
+                        <span class="text-surface-tint font-label-caps mb-4">$ LOCATE --USER</span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Global Operations Base</h3>
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="material-symbols-outlined text-secondary"
+                                style="font-variation-settings: 'FILL' 1;">location_on</span>
+                            <span class="text-on-surface font-body-lg">West Bengal, IN</span>
+                        </div>
+                        <p class="text-on-surface-variant font-body-md">Optimized for remote collaboration across
+                            UTC+5:30 and globally distributed teams.</p>
+                    </div>
+                    <div class="flex-1 relative min-h-[300px] overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7448402.720589423!2d76.98839195000005!3d24.279685606531643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a029468ff8b0861%3A0x840f598cf7d1747f!2sTamluk%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1779120060871!5m2!1sen!2sin"
+                            class="absolute inset-0 w-full h-full"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div
+                            class="absolute bottom-4 right-4 bg-zinc-950/80 backdrop-blur-md p-4 border border-surface-tint/30 pointer-events-none">
+                            <p class="font-mono-sm text-[10px] text-surface-tint leading-none">SYSTEM STATUS: ONLINE</p>
+                            <p class="font-mono-sm text-[10px] text-zinc-400 mt-1">LAT: 22.9868° N / LONG: 87.8550° E</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="max-w-7xl mx-auto px-8 mb-xxl text-center">
+            <div class="py-xxl border-y border-zinc-800/50">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">PREPARING FOR LAUNCH?</h2>
+                <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto mb-lg">
+                    Whether it's a predictive modeling challenge or a full-scale AI implementation, my terminal is
+                    always open for the right problems.
+                </p>
+                <div class="flex flex-wrap justify-center gap-lg">
+                    <a class="font-label-caps text-surface-tint flex items-center gap-2 hover:gap-4 transition-all group"
+                        href="mailto:abhilashbhunia@gmail.com">
+                        INITIALIZE CONVERSATION
+                        <span class="material-symbols-outlined text-sm">trending_flat</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-zinc-950 w-full py-12 mt-24 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8 gap-6">
+            <div class="text-lg font-bold text-cyan-400 font-space-grotesk tracking-tight">
+                ABHILASH BHUNIA // DATA &amp; ML SPECIALIST
+            </div>
+            <div class="flex gap-8">
+                <a class="font-space-grotesk uppercase tracking-widest text-xs text-zinc-500 hover:text-cyan-400 transition-colors duration-200 opacity-80 hover:opacity-100"
+                    href="#">GitHub</a>
+                <a class="font-space-grotesk uppercase tracking-widest text-xs text-zinc-500 hover:text-cyan-400 transition-colors duration-200 opacity-80 hover:opacity-100"
+                    href="#">LinkedIn</a>
+                <a class="font-space-grotesk uppercase tracking-widest text-xs text-zinc-500 hover:text-cyan-400 transition-colors duration-200 opacity-80 hover:opacity-100"
+                    href="#">Kaggle</a>
+                <a class="font-space-grotesk uppercase tracking-widest text-xs text-zinc-500 hover:text-cyan-400 transition-colors duration-200 opacity-80 hover:opacity-100"
+                    href="#">Mail</a>
+            </div>
+            <div class="font-space-grotesk uppercase tracking-widest text-xs text-zinc-500">
+                © 2024 ABHILASH BHUNIA
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

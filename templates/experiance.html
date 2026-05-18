@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353437",
+                        "on-secondary-container": "#0f6d00",
+                        "surface": "#131315",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "background": "#131315",
+                        "primary-fixed": "#7df4ff",
+                        "on-surface": "#e5e1e4",
+                        "surface-container": "#201f21",
+                        "on-primary": "#00363a",
+                        "on-secondary": "#053900",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#d7ffc5",
+                        "inverse-surface": "#e5e1e4",
+                        "secondary-container": "#2ff801",
+                        "on-surface-variant": "#b9cacb",
+                        "on-primary-fixed": "#002022",
+                        "tertiary-container": "#e1d2ff",
+                        "surface-dim": "#131315",
+                        "on-primary-fixed-variant": "#004f54",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#23005b",
+                        "inverse-primary": "#006970",
+                        "inverse-on-surface": "#313032",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#022100",
+                        "surface-bright": "#39393b",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-tint": "#00dbe9",
+                        "secondary-fixed": "#79ff5b",
+                        "outline-variant": "#3b494b",
+                        "primary-container": "#00f0ff",
+                        "secondary-fixed-dim": "#2ae500",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-container-low": "#1c1b1d",
+                        "on-tertiary": "#3c0090",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-primary-container": "#006970",
+                        "on-background": "#e5e1e4",
+                        "tertiary": "#faf3ff",
+                        "surface-container-highest": "#353437",
+                        "on-secondary-fixed-variant": "#095300",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "outline": "#849495",
+                        "primary": "#dbfcff",
+                        "on-tertiary-container": "#7213ff",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "unit": "4px",
+                        "xxl": "80px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "mono-sm": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(18, 18, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+        }
+
+        .inner-glow {
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: #00f0ff;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <header
+        class="sticky top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+        <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-cyan-400" data-icon="terminal">terminal</span>
+                <span class="text-sm font-black text-cyan-400 tracking-widest uppercase font-['Space_Grotesk']">ABHILASH
+                    BHUNIA</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('home') }}">Home</a>
+                <a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] text-sm uppercase tracking-wider transition-colors duration-300"
+                    href="{{ url_for('experience') }}">Experience</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('projects') }}">Projects</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('skills') }}">Skills</a>
+                <a class="text-zinc-400 font-medium font-['Space_Grotesk'] text-sm uppercase tracking-wider hover:text-cyan-300 transition-colors duration-300"
+                    href="{{ url_for('contact') }}">Contact</a>
+            </div>
+            <button
+                class="bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 px-4 py-2 text-sm font-['Space_Grotesk'] tracking-wider hover:bg-cyan-400 hover:text-zinc-950 transition-all duration-300 uppercase">
+                RESUME.PDF
+            </button>
+        </nav>
+    </header>
+    <main class="min-h-screen">
+        <section class="max-w-7xl mx-auto px-8 pt-xxl">
+            <header
+                class="sticky top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-xl shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+                <div class="flex items-center gap-2 mb-sm">
+                    <span class="text-cyan-400 font-mono-sm text-sm">$ cd /root/professional_history</span>
+                    <span class="terminal-cursor"></span>
+                </div>
+                <h1 class="font-headline-lg text-headline-lg tracking-tight uppercase">Experience <span
+                        class="text-cyan-400">&amp;</span> Education</h1>
+            </header>
+            <br></br>
+            <div class="grid grid-cols-12 gap-gutter">
+                <div class="col-span-12 lg:col-span-3 space-y-gutter">
+                    <div class="glass-panel p-lg inner-glow">
+                        <div class="flex justify-between items-start mb-md">
+                            <span class="font-label-caps text-zinc-500">SYSTEM_METRIC</span>
+                            <span class="material-symbols-outlined text-cyan-400"
+                                data-icon="monitoring">monitoring</span>
+                        </div>
+                        <div class="text-display-lg font-display-lg text-cyan-400">88%</div>
+                        <div class="font-label-caps text-on-surface-variant mt-2 uppercase tracking-widest">BCA CGPA
+                        </div>
+                        <p class="text-zinc-500 text-xs mt-sm font-body-md">Academic performance at Maulana Abul Kalam
+                            Azad University of Technology.</p>
+                    </div>
+                    <div class="glass-panel p-lg inner-glow">
+                        <div class="flex justify-between items-start mb-md">
+                            <span class="font-label-caps text-zinc-500">CORE_STACK</span>
+                            <span class="material-symbols-outlined text-secondary-container"
+                                data-icon="code">code</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-1 bg-surface-container border border-cyan-400/20 text-cyan-400 font-mono-sm text-[10px]">PYTHON</span>
+                            <span
+                                class="px-2 py-1 bg-surface-container border border-secondary-container/20 text-secondary-container font-mono-sm text-[10px]">POWER
+                                BI</span>
+                            <span
+                                class="px-2 py-1 bg-surface-container border border-tertiary-fixed-dim/20 text-tertiary-fixed-dim font-mono-sm text-[10px]">SQL</span>
+                            <span
+                                class="px-2 py-1 bg-surface-container border border-error/20 text-error font-mono-sm text-[10px]">ETL</span>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden group h-64 border border-white/5">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale brightness-50"
+                            data-alt="A high-tech server room interior with glowing blue fiber optic cables and rows of mainframe units. The lighting is deep indigo and cyan, reflecting off metallic surfaces to create a premium cyberpunk atmosphere. Minimalist data streams are overlaid as faint holographic elements in the background, conveying a sense of immense processing power and security."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz7lDQY1axKJ6b4EZ3GuBOc_gGmz_0st8_tB7VrRsWqY5Wd1HxsVzAwiZVeH8JvJ7wjSyS00j6C_hUcsg575eic-HjV6EgJYSSRyd4T-ZwVyTqOY8zZgwGAdvcEXRzX4z6nkiwueo3iEwGna1V3ZzigKohrs0M6DH5MjJMOt9FjdAaD-4Vj3Qf9wTvECaHhFCgxlo3GQqhaodbeBn2TIErh8uOU6RPUPk3EVHOBMEuj-70PxNQDuhYcdBFUVCMgKoywG96DYpB6JnT">
+                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="text-[10px] font-label-caps text-cyan-400 uppercase tracking-[0.2em]">Data
+                                Engine v2.0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-9">
+                    <div class="space-y-xl">
+                        <!-- Work Experience -->
+                        <div class="flex gap-lg group">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-12 h-12 glass-panel flex items-center justify-center border border-cyan-400/30 neon-glow">
+                                    <span class="material-symbols-outlined text-cyan-400"
+                                        data-icon="rocket_launch">rocket_launch</span>
+                                </div>
+                                <div class="w-[1px] flex-grow bg-gradient-to-b from-cyan-400 to-transparent my-4"></div>
+                            </div>
+                            <div class="flex-grow pb-xl">
+                                <div class="flex flex-col md:flex-row justify-between items-start mb-md">
+                                    <div>
+                                        <h3
+                                            class="font-headline-md text-headline-md text-white mb-1 uppercase tracking-tight">
+                                            Data Analyst Intern</h3>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-cyan-400 font-mono-sm">@ WEBEL FUJISOFT VARA COE</span>
+                                            <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                                            <span class="text-zinc-500 font-mono-sm uppercase text-xs">Jul 2024 —
+                                                Present</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="glass-panel p-lg inner-glow">
+                                    <p class="text-on-surface-variant font-body-md mb-md">Driving data-driven decision
+                                        making through advanced ETL processes and interactive visual intelligence.</p>
+                                    <ul class="space-y-sm text-zinc-500 font-body-md text-sm">
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-cyan-400 mt-1">→</span>
+                                            <span>Performed data analysis using Python libraries including ETL and
+                                                preprocessing.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-cyan-400 mt-1">→</span>
+                                            <span>Prepared datasets and fed data into machine learning models.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <span class="text-cyan-400 mt-1">→</span>
+                                            <span>Designed interactive dashboards and reports using Power BI.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Education 1 -->
+                        <div class="flex gap-lg group">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-12 h-12 glass-panel flex items-center justify-center border border-white/10">
+                                    <span class="material-symbols-outlined text-zinc-400"
+                                        data-icon="school">school</span>
+                                </div>
+                                <div class="w-[1px] flex-grow bg-gradient-to-b from-zinc-700 to-transparent my-4"></div>
+                            </div>
+                            <div class="flex-grow pb-xl">
+                                <div class="mb-md">
+                                    <h3
+                                        class="font-headline-md text-headline-md text-white mb-1 uppercase tracking-tight">
+                                        Master of Computer Applications (MCA)</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-cyan-400 font-mono-sm uppercase">Haldia Institute of Science
+                                            and Technology</span>
+                                        <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                                        <span class="text-zinc-500 font-mono-sm uppercase text-xs">2025 — Present</span>
+                                    </div>
+                                </div>
+                                <div class="glass-panel p-lg border-l-4 border-l-tertiary-fixed-dim">
+                                    <h4 class="font-label-caps text-white mb-sm text-[10px] tracking-widest uppercase">
+                                        Status</h4>
+                                    <p class="text-zinc-400 text-sm font-body-md">Currently pursuing advanced
+                                        postgraduate studies in computer applications and systems architecture.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Education 2 -->
+                        <div class="flex gap-lg group">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-12 h-12 glass-panel flex items-center justify-center border border-white/10">
+                                    <span class="material-symbols-outlined text-zinc-400"
+                                        data-icon="history_edu">history_edu</span>
+                                </div>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="mb-md">
+                                    <h3
+                                        class="font-headline-md text-headline-md text-white mb-1 uppercase tracking-tight">
+                                        Bachelor of Computer Applications (BCA)</h3>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-cyan-400 font-mono-sm uppercase">Maulana Abul Kalam Azad
+                                            University of Technology</span>
+                                        <span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+                                        <span class="text-zinc-500 font-mono-sm uppercase text-xs">2022 — 2025</span>
+                                    </div>
+                                </div>
+                                <div class="glass-panel p-lg border-l-4 border-l-primary-container">
+                                    <h4 class="font-label-caps text-white mb-sm text-[10px] tracking-widest uppercase">
+                                        Performance</h4>
+                                    <p class="text-zinc-400 text-sm font-body-md">Achieved a cumulative grade point
+                                        average of 88% CGPA during the undergraduate program.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-8 py-xxl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+                <div class="glass-panel p-lg text-center inner-glow group hover:border-cyan-400/50 transition-all">
+                    <span class="material-symbols-outlined text-cyan-400 text-3xl mb-md block"
+                        data-icon="history">history</span>
+                    <div class="text-headline-md font-headline-md text-white">3+ YRS</div>
+                    <div class="font-label-caps text-zinc-500 text-[10px] uppercase mt-2">Academic &amp; Professional
+                    </div>
+                </div>
+                <div
+                    class="glass-panel p-lg text-center inner-glow group hover:border-secondary-container/50 transition-all">
+                    <span class="material-symbols-outlined text-secondary-container text-3xl mb-md block"
+                        data-icon="hub">hub</span>
+                    <div class="text-headline-md font-headline-md text-white">10+</div>
+                    <div class="font-label-caps text-zinc-500 text-[10px] uppercase mt-2">Project Pipelines</div>
+                </div>
+                <div
+                    class="glass-panel p-lg text-center inner-glow group hover:border-tertiary-fixed-dim/50 transition-all">
+                    <span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl mb-md block"
+                        data-icon="query_stats">query_stats</span>
+                    <div class="text-headline-md font-headline-md text-white">88%</div>
+                    <div class="font-label-caps text-zinc-500 text-[10px] uppercase mt-2">Academic Score</div>
+                </div>
+                <div class="glass-panel p-lg text-center inner-glow group hover:border-error/50 transition-all">
+                    <span class="material-symbols-outlined text-error text-3xl mb-md block"
+                        data-icon="dashboard">dashboard</span>
+                    <div class="text-headline-md font-headline-md text-white">SOTA</div>
+                    <div class="font-label-caps text-zinc-500 text-[10px] uppercase mt-2">Visualization Standards</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer
+        class="w-full py-16 border-t border-white/5 bg-zinc-950 font-['Space_Grotesk'] text-xs tracking-widest border-t border-zinc-900">
+        <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
+            <div class="text-zinc-600">
+                © 2024 ABHILASH BHUNIA // DATA ANALYST
+            </div>
+            <div class="flex gap-8">
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out"
+                    href="#">GitHub</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out"
+                    href="#">LinkedIn</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out"
+                    href="#">Kaggle</a>
+                <a class="text-zinc-600 hover:text-cyan-400 underline decoration-cyan-400/30 underline-offset-4 transition-all duration-500 ease-in-out"
+                    href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
